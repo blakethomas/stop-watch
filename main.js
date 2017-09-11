@@ -43,5 +43,3 @@ $stop.addEventListener('click', function() {
   stopTimer()
   toggleStart()
 })
-
-$reset.addEventListener('click', reset)
