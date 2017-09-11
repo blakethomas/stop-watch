@@ -3,6 +3,7 @@ var id = null
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
+var $reset = document.querySelector('#reset')
 
 function update() {
   time = time + 1
@@ -29,6 +30,10 @@ function stopTimer() {
   id = null
 }
 
+function reset(){
+  time = 0
+}
+
 $start.addEventListener('click', function() {
   startTimer()
   toggleStart()
@@ -38,3 +43,5 @@ $stop.addEventListener('click', function() {
   stopTimer()
   toggleStart()
 })
+
+$reset.addEventListener('click', reset)
