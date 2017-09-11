@@ -1,30 +1,40 @@
 var time = 0
-var limit = null
-
+var id = null
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
 var $stop = document.querySelector('#stop')
 
-function update(){
-  return time = time + 1
+function update() {
+  time = time + 1
 }
 
-function updateDom(){
+function updateDom() {
   time.toString()
-  return $time.textContent = time
+  $time.textContent = time
 }
 
-function removeStart(){
-  if(limit !== null){
-    $start.remove()
+function toggleStart() {
+  $start.classList.toggle('startbutton')
+}
+
+function startTimer() {
+  if (id === null) {
+    id = window.setInterval(update, 1000)
+    window.setInterval(updateDom, 16)
   }
-  return
 }
 
-$start.addEventListener('click', function(event){
-  event.preventDefault()
-  window.setInterval(update, 1000)
-  window.setInterval(updateDom, 16)
-  limit = 0
-  removeStart()
-});
+function stopTimer() {
+  window.clearInterval(id)
+  id = null
+}
+
+$start.addEventListener('click', function() {
+  startTimer()
+  toggleStart()
+})
+
+$stop.addEventListener('click', function() {
+  stopTimer()
+  toggleStart()
+})
