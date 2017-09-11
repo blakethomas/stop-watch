@@ -8,8 +8,13 @@ function update(){
   return time = time + 1
 }
 
+function updateDom(){
+  time.toString()
+  return $time.textContent = time
+}
 
 $start.addEventListener('click', function(event){
   event.preventDefault()
   window.setInterval(update, 1000)
+  window.setInterval(updateDom, 0)
 });
