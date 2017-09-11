@@ -1,4 +1,5 @@
-var time = 0;
+var time = 0
+var limit = null
 
 var $time = document.querySelector('#time')
 var $start = document.querySelector('#start')
@@ -13,8 +14,17 @@ function updateDom(){
   return $time.textContent = time
 }
 
+function removeStart(){
+  if(limit !== null){
+    $start.remove()
+  }
+  return
+}
+
 $start.addEventListener('click', function(event){
   event.preventDefault()
   window.setInterval(update, 1000)
-  window.setInterval(updateDom, 0)
+  window.setInterval(updateDom, 16)
+  limit = 0
+  removeStart()
 });
