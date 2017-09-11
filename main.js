@@ -28,3 +28,8 @@ $start.addEventListener('click', function(event){
   limit = 0
   removeStart()
 });
+
+$stop.addEventListener('click', function(event){
+  event.preventDefault()
+
+})
