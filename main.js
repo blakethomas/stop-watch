@@ -30,6 +30,10 @@ function stopTimer() {
   id = null
 }
 
+function reset(){
+  time = 0
+}
+
 $start.addEventListener('click', function() {
   startTimer()
   toggleStart()
@@ -39,3 +43,5 @@ $stop.addEventListener('click', function() {
   stopTimer()
   toggleStart()
 })
+
+$reset.addEventListener('click', reset)
